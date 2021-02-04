@@ -9,23 +9,3 @@ spec:
   timeout: 1m0s
   url: https://aws.github.io/eks-charts
 
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: aws-load-balancer-controller
-  namespace: kube-system
-spec:
-  chart:
-    spec:
-      chart: aws-load-balancer-controller
-      sourceRef:
-        kind: HelmRepository
-        name: aws-load-balancer-controller
-        namespace: kube-system
-  interval: 30m
-  releaseName: aws-load-balancer-controller
-  targetNamespace: kube-system
-  values:
-    image:
-      tag: 1.1.3
